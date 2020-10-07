@@ -44,6 +44,8 @@ assert the_csrf == csrf_token
 # Control jumps to my_store_tokens after here
 access_token, refresh_token = oauth.authenticate(the_code)
 
+client = boxsdk.Client(oauth)
+
 print("Resuming")
-
-
+user = client.user().get()
+print('The current user ID is {0}'.format(user.id))

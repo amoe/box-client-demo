@@ -57,3 +57,7 @@ print('Folder "{0}" has {1} items in it'.format(
     folder.name,
     folder.item_collection['total_count'],
 ))
+
+items = client.folder(folder_id=TEST_FOLDER_ID).get_items()
+for item in items:
+    print('{0} {1} is named "{2}"'.format(item.type.capitalize(), item.id, item.name))

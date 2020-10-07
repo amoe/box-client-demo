@@ -49,3 +49,11 @@ client = boxsdk.Client(oauth)
 print("Resuming")
 user = client.user().get()
 print('The current user ID is {0}'.format(user.id))
+
+TEST_FOLDER_ID = '104799745798'
+
+folder = client.folder(folder_id=TEST_FOLDER_ID).get()
+print('Folder "{0}" has {1} items in it'.format(
+    folder.name,
+    folder.item_collection['total_count'],
+))
